@@ -16,7 +16,7 @@ if st.button("분석 시작"):
         rf_ticker = "^TNX"
         
         # 데이터 다운로드 및 처리
-        data = yf.download([ticker_symbol, market_ticker, rf_ticker], period="5y")['Adj Close']
+        data = yf.download([ticker_symbol, market_ticker, rf_ticker], period="5y")['Close']
         data = data.ffill().dropna()
         returns = data[[ticker_symbol, market_ticker]].pct_change().dropna()
         
